@@ -15,7 +15,7 @@ import {
 
 // Importación directa de librerías instaladas vía NPM
 import { jsPDF } from "jspdf";
-import "jspdf-autotable";
+import autoTable from 'jspdf-autotable';
 
 export default function App() {
   const companyName = "Ebanistería A&B";
@@ -112,7 +112,7 @@ export default function App() {
       `RD$ ${(item.quantity * item.unitPrice).toLocaleString()}`
     ]);
 
-    doc.autoTable({
+    autoTable(doc, {
       startY: 75,
       head: [['CANT.', 'DESCRIPCIÓN', 'PRECIO UNIT.', 'TOTAL']],
       body: tableData,
